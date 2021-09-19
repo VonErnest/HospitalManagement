@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+<video playsinline autoplay muted loop id="mainvideo">
+    <source src="../videos/Free Background Video Effects.mp4">
+</video>
+
+<header class="viewport-header">
+    <div>
+        <h1>
+            Welcome to our hospital!
+        </h1>
+
+        <h2>
+            We care for you
+        </h2>
+    </div>
+</header>
+
+<div class="button_cont" align="center">
+    <a class="login" th:href="@{/login}" target="_blank" rel="nofollow">
+            <span>
+                Login
+            </span>
+    </a>
+    <h3><a th:href="@{/register-patient}">Sign up</a></h3>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">   <=== VB VAJA LISADA, ET KUVADA SISSELOGINUD INIMESE ANDMEID-->
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link th:href="@{/styles/doctor.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h3>List of patients: </h3>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive" data-pattern="priority-columns">
+                <table class="table table-bordered table-hover">
+                    <thead>
+
+                    <button style="margin: 10px">
+                        <a href="/newPatient">Add new patient</a>
+                    </button>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Identification Code</th>
+                        <th>Age</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Prescription</th>
+                        <th>Diagnose</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="patient: ${patients}">
+                        <td th:text="${patient.firstName}"></td>
+                        <td th:text="${patient.lastName}"></td>
+                        <td th:text="${patient.personalIdentificationCode}"></td>
+                        <td th:text="${patient.age}"></td>
+                        <td th:text="${patient.phoneNumber}"></td>
+                        <td th:text="${patient.email}"></td>
+                        <td th:text="${patient.drug}"></td>
+                        <td th:text="${patient.diagnose}"></td>
+
+                        <td>
+                            <a th:href="@{'/editPatient1/' + ${patient.id}}">Edit</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a th:href="@{'/deletePatient/' + ${patient.id}}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <h3>Work schedule: </h3>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive" data-pattern="priority-columns">
+                <table class="table table-bordered table-hover">
+                    <thead>
+
+                    <button style="margin: 10px">
+                        <a href="/new">Add to schedule</a>
+                    </button>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Start time</th>
+                        <th>End time</th>
+                        <th>Doctor ID</th>
+                        <th>Patient code</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="schedule: ${schedules}">
+                        <td th:text="${schedule.date}"></td>
+                        <td th:text="${schedule.startTime}"></td>
+                        <td th:text="${schedule.endTime}"></td>
+                        <td th:text="${schedule.doctorId}"></td>
+                        <td th:text="${schedule.patientCode}"></td>
+
+                        <td>
+                            <a th:href="@{'/edit/' + ${schedule.id}}">Edit</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a th:href="@{'/delete/' + ${schedule.id}}">Delete</a>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

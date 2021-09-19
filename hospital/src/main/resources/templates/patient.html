@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Patient</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+    <link th:href="@{/styles/patient.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container text-center">
+    <div>
+        <p>
+        <h1>Welcome <b>[[${#request.userPrincipal.principal.getFullName}]]</b></h1>
+
+    </div>
+    <div>
+        <div class="container">
+            <div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive" data-pattern="priority-columns">
+                        <table class="table table-bordered table-hover">
+
+                            <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Personal Identification Code</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Phone number</th>
+                                <th>Diagnose</th>
+                                <th>Prescription</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td th:text="${#request.userPrincipal.principal.getFirstName}">First Name</td>
+                                <td th:text="${#request.userPrincipal.principal.getLastName}">Last Name</td>
+                                <td th:text="${#request.userPrincipal.principal.getPersonalIdentificationCode}">Personal
+                                    Identification Code
+                                </td>
+                                <td th:text="${#request.userPrincipal.principal.getAge}">Age</td>
+                                <td th:text="${#request.userPrincipal.principal.getEmail}">Email</td>
+                                <td th:text="${#request.userPrincipal.principal.getPhoneNumber}">Phone Number</td>
+                                <td th:text="${#request.userPrincipal.principal.getDiagnose}">Diagnose</td>
+                                <td th:text="${#request.userPrincipal.principal.getPrescription}">Prescription</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="button_cont" align="center">
+                    <a class="back" th:href="@{/}" target="_blank" rel="nofollow">
+            <span>
+                Sign out
+            </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

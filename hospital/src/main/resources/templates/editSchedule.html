@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Schedule</h1>
+    <br/>
+    <form action="#" th:action="@{/save}" th:object="${schedule}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Schedule ID:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td>
+                    <input type="text" th:field="*{date}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>End Time:</td>
+                <td><input type="text" th:field="*{endTime}"/></td>
+            </tr>
+            <tr>
+                <td>Start Time:</td>
+                <td><input type="text" th:field="*{startTime}"/></td>
+            </tr>
+            <tr>
+                <td>Doctor ID:</td>
+                <td><input type="text" th:field="*{doctorId}"/></td>
+            </tr>
+
+            <tr>
+                <td>Patient Code:</td>
+                <td><input type="text" th:field="*{patientCode}"/></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
